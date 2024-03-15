@@ -1,0 +1,46 @@
+#!/bin/bash
+papa=$1
+if [ ! -d $papa ];
+then
+        echo "NO BRAAAAAAAAAT"
+	echo " создать надо папку"
+        exit 1
+else
+cd $papa
+echo " перешел в $papa"
+touch papinfile.txt
+touch papinfile2.txt
+echo " создали 2 файла"
+ls 
+rm papinfile.txt
+echo " удалили первый файл"
+ls
+mkdir papa2
+echo " создали новую папку"
+mv papinfile2.txt papa2
+echo " перенесли 2-ой файл в новую папку"
+cd papa2 
+echo " перешел во вторую папку"
+ls
+#host
+echo "мама я написал эчо"
+cd $papa
+touch testfile
+ll testfile
+chmod 777 testfile
+ll testfile
+echo " coздаем папку для архива"
+echo "создаем файл"
+touch fileYAdro
+echo "записываем в него данные о ядре и о хосте"
+uname -r >>fileYAdro
+hostname >>fileYAdro
+cat fileYAdro
+echo "создаем архив"
+mv fileYAdro $papa
+tar czf yadro.tgz $papa
+touch prime
+echo " сщздали файл и копировали в него данные"
+cp fileYAdro prime
+cat prime
+fi
